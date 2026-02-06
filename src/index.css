@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optimized font loading */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+/* CSS Variables for consistent theming */
+:root {
+  --cosmic-dark: 0 0% 2%;
+  --cosmic-light: 0 0% 98%;
+  --cosmic-purple: 260 85% 65%;
+  --cosmic-blue: 220 90% 60%;
+  --cosmic-gradient: linear-gradient(135deg, hsl(var(--cosmic-purple)), hsl(var(--cosmic-blue)));
+}
+
+/* Base styles with performance optimizations */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: hsl(var(--cosmic-dark));
+  color: hsl(var(--cosmic-light));
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Responsive container system */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* Optimized animations and effects */
+@keyframes cosmic-float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes cosmic-drift {
+  0% { transform: translateX(-100vw) rotate(0deg); }
+  100% { transform: translateX(100vw) rotate(360deg); }
+}
+
+/* Performance-optimized background */
+.cosmic-background {
+  position: relative;
+  background: 
+    radial-gradient(circle at 25% 25%, hsl(var(--cosmic-purple) / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, hsl(var(--cosmic-blue) / 0.1) 0%, transparent 50%),
+    hsl(var(--cosmic-dark));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.cosmic-background::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.1), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.05), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.08), transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px, 300px 300px, 150px 150px;
+  animation: cosmic-drift 120s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Particle effects (optimized for performance) */
+.cosmic-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cosmic-particles::before,
+.cosmic-particles::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: hsl(var(--cosmic-purple));
+  border-radius: 50%;
+  animation: cosmic-float 6s ease-in-out infinite;
+}
+
+.cosmic-particles::before {
+  top: 20%;
+  left: 20%;
+  animation-delay: -2s;
+}
+
+.cosmic-particles::after {
+  top: 80%;
+  right: 20%;
+  animation-delay: -4s;
+  background: hsl(var(--cosmic-blue));
+}
+
+/* Component styles */
+.cosmic-gradient-text {
+  background: var(--cosmic-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: cosmic-pulse 3s ease-in-out infinite;
+}
+
+.cosmic-card {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--cosmic-dark) / 0.8) 0%,
+    hsl(var(--cosmic-purple) / 0.05) 100%
+  );
+  border: 1px solid hsl(var(--cosmic-purple) / 0.2);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.cosmic-card:hover {
+  border-color: hsl(var(--cosmic-purple) / 0.4);
+  box-shadow: 
+    0 10px 40px hsl(var(--cosmic-purple) / 0.2),
+    0 0 20px hsl(var(--cosmic-purple) / 0.1);
+}
+
+.cosmic-btn-primary {
+  background: var(--cosmic-gradient);
+  color: hsl(var(--cosmic-light));
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
+}
+
+.cosmic-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.cosmic-btn-primary:hover::before {
+  left: 100%;
+}
+
+.cosmic-btn-primary:hover {
+  box-shadow: 
+    0 10px 30px hsl(var(--cosmic-purple) / 0.3),
+    0 0 20px hsl(var(--cosmic-purple) / 0.2);
+}
+
+.cosmic-btn-secondary {
+  background: transparent;
+  color: hsl(var(--cosmic-light));
+  border: 2px solid hsl(var(--cosmic-purple) / 0.5);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, background-color, border-color;
+}
+
+.cosmic-btn-secondary:hover {
+  background: hsl(var(--cosmic-purple) / 0.1);
+  border-color: hsl(var(--cosmic-purple));
+  box-shadow: 
+    0 5px 20px hsl(var(--cosmic-purple) / 0.2);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .cosmic-background::before {
+    animation-duration: 180s;
+  }
+  
+  .cosmic-particles::before,
+  .cosmic-particles::after {
+    width: 2px;
+    height: 2px;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .cosmic-background::before,
+  .cosmic-particles::before,
+  .cosmic-particles::after,
+  .cosmic-gradient-text {
+    animation: none;
+  }
+  
+  .cosmic-card,
+  .cosmic-btn-primary,
+  .cosmic-btn-secondary {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .cosmic-background::before,
+  .cosmic-particles {
+    display: none;
+  }
+  
+  .cosmic-card {
+    border: 1px solid #ccc;
+    background: white;
+  }
+}

@@ -1,0 +1,392 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oxanium";
+  background-image: url(../img/banner/banner3.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+
+
+
+/* #f4f5fa */
+.about-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  margin-top: 50px;
+  background-color: black;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 46px;
+  text-align: center;
+}
+
+.about-container .content {
+  display: flex;
+  flex-direction: row;
+  /* Set the content in a row layout */
+  gap: 20px;
+  align-items: center;
+}
+
+.about-container .content .text-section {
+  text-align: justify;
+  flex: 1;
+  /* Makes the text section take up 1 part of the available space */
+  padding-right: 20px;
+  max-width: 60%;
+  /* Restrict the width */
+}
+
+.about-container .content .text-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+.about-container .content .image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  flex: 1;
+  /* Makes the image section take up 1 part of the available space */
+}
+
+.about-container .content .image-grid img {
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.about-container .content .image-grid .imgcover{
+  object-fit: cover;
+}
+
+.animated-title {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 46px;
+  text-align: center;
+}
+
+.animated-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+  /* Delay each letter's animation for a staggered effect */
+  animation-delay: calc(0.1s * var(--i));
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Image fade-in animation */
+.image-grid img {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
+  /* Delay for each image */
+}
+
+/* Define keyframes for the fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hover-effect {
+  font-size: 46px;
+  /* Adjust the font size as needed */
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff0080, #ff8c00);
+  /* Gradient color */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  /* Smooth transition for transform and filter */
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  /* Add a shadow effect for depth */
+}
+
+.hover-effect:hover {
+  transform: scale(1.1);
+  /* Scale up on hover */
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0));
+  /* Increase shadow on hover */
+}
+
+.hover-effect {
+  transition: opacity 0.3s ease;
+}
+
+.hover-effect:hover {
+  opacity: 0.7;
+  /* Fades out slightly on hover */
+}
+
+@media screen and (max-width: 769px) {
+  .animated-title {
+    font-size: 2.5rem;
+  }
+
+  .text-section {
+    max-width: 80%;
+  }
+
+  .text-section p {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .animated-title {
+    font-size: 1.6rem;
+  }
+
+  .content {
+    flex-direction: column-reverse;
+  }
+
+  .image-grid {
+    max-width: 85%;
+  }
+
+  .text-section {
+    padding: 0;
+    max-width: 80%;
+  }
+
+  .text-section p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Tablets and small screens (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .about-container {
+    padding: 15px;
+  }
+
+  .about-container .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-container .content .text-section {
+    max-width: 80%;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .about-container .content .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-container .content .image-grid img {
+    width: 250px;
+    height: 180px;
+  }
+
+  .animated-title {
+    font-size: 40px;
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .about-container {
+    padding: 10px;
+  }
+
+  .about-container .content {
+    flex-direction: column-reverse;
+  }
+
+  .about-container .content .text-section {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .about-container .content .image-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .about-container .content .image-grid img {
+    width: 100%;
+    height: auto;
+  }
+
+  .animated-title {
+    font-size: 2rem;
+  }
+
+  .hover-effect {
+    font-size: 2rem;
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .about-container {
+    padding: 5px;
+  }
+
+  .about-container .content .text-section {
+    max-width: 95%;
+  }
+
+  .about-container .content .text-section p {
+    font-size: 0.9rem;
+  }
+
+  .about-container .content .image-grid img {
+    width: 100%;
+    height: auto;
+  }
+
+  .animated-title {
+    font-size: 1.5rem;
+  }
+
+  .hover-effect {
+    font-size: 1.5rem;
+  }
+}
+
+
+#contact {
+  padding: 60px 0;
+  color: #fff;
+  background-color: #1c1c1c;
+}
+
+#contact .contact-info {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#contact .contact-info i {
+  font-size: 48px;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #f82249;
+}
+
+#contact .contact-info address,
+#contact .contact-info p {
+  margin-bottom: 0;
+  color: #fff;
+}
+
+#contact .contact-info h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #9113ff;
+}
+
+#contact .contact-info a {
+  color: #fff;
+}
+
+#contact .contact-info a:hover {
+  color: #4869df;
+}
+
+#contact .contact-address,
+#contact .contact-phone,
+#contact .contact-email {
+  margin-bottom: 20px;
+}
+
+#contact .form #sendmessage {
+  color: #9113ff;
+  border: 1px solid #9113ff;
+  display: none;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#contact .form #errormessage {
+  color: red;
+  display: none;
+  border: 1px solid red;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#contact .form #sendmessage.show,
+#contact .form #errormessage.show,
+#contact .form .show {
+  display: block;
+}
+
+#contact .form .validation {
+  color: red;
+  display: none;
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+#contact .form input,
+#contact .form textarea {
+  padding: 10px 14px;
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 15px;
+}
+
+#contact .form button[type="submit"] {
+  background: #9113ff;
+  border: 0;
+  padding: 10px 40px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+#contact .form button[type="submit"]:hover {
+  background: #4869df;
+}
